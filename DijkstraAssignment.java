@@ -41,22 +41,29 @@ public class DijkstraAssignment {
             int currentDistance = current.distance;
 
             for (Edge road : graph.get(currentCity)) {
+                String neighbor = road.destination;
+                int weight = road.weight;
+                int newDistance = currentDistance + weight;
 
-                
+                if (newDistance < distances.get(neighbor)) {
+                    distances.put(neighbor, newDistance);
+
+                    queue.add(new Node(neighbor, newDistance));
+                }
             }
         }
 
         // PRINT RESULTS
-        // System.out.println(
-        // "Shortest distances from "
-        // + start + ":");
+        System.out.println(
+        "Shortest distances from "
+        + start + ":");
 
-        // for (String city : distances.keySet()) {
+        for (String city : distances.keySet()) {
 
-        // System.out.println(
-        // city + " = "
-        // + distances.get(city));
-        // }
+        System.out.println(
+        city + " = "
+        + distances.get(city));
+        }
     }
 
     // MAIN METHOD
