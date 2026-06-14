@@ -23,10 +23,18 @@ public class DijkstraAssignment {
     public void dijkstra(String start) {
         //Implement dijkstra algorithm
         //Refer to the pseudoCode.md
+        Map<String, Integer> distances = new HashMap<>();
+
+        for (String city : graph.keySet()) {
+            distances.put(city, Integer.MAX_VALUE);
+        }
+
+        distances.put(start, 0);
+
+        PriorityQueue<Node> queue = new PriorityQueue<>();
+
+        queue.add(new Node(start, 0));
         
-
-
-
         // PRINT RESULTS
         // System.out.println(
         //         "Shortest distances from "
