@@ -21,8 +21,8 @@ public class DijkstraAssignment {
 
     // DIJKSTRA ALGORITHM
     public void dijkstra(String start) {
-        //Implement dijkstra algorithm
-        //Refer to the pseudoCode.md
+        // Implement dijkstra algorithm
+        // Refer to the pseudoCode.md
         Map<String, Integer> distances = new HashMap<>();
 
         for (String city : graph.keySet()) {
@@ -34,39 +34,49 @@ public class DijkstraAssignment {
         PriorityQueue<Node> queue = new PriorityQueue<>();
 
         queue.add(new Node(start, 0));
-        
+
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            String currentCity = current.city;
+            int currentDistance = current.distance;
+
+            for (Edge road : graph.get(currentCity)) {
+
+                
+            }
+        }
+
         // PRINT RESULTS
         // System.out.println(
-        //         "Shortest distances from "
-        //                 + start + ":");
+        // "Shortest distances from "
+        // + start + ":");
 
         // for (String city : distances.keySet()) {
 
-        //     System.out.println(
-        //             city + " = "
-        //                     + distances.get(city));
+        // System.out.println(
+        // city + " = "
+        // + distances.get(city));
         // }
     }
 
     // MAIN METHOD
     public static void main(String[] args) {
         /*
-                  10
-        Seattle ------ Bellevue
-           |              |
-         35|              |5
-           |              |
-           |              |
-         Tacoma         Redmond
-           |              |
-         20|              |15
-           |              |
-           |              |
-           ------ Everett
-        */
+         * 10
+         * Seattle ------ Bellevue
+         * | |
+         * 35| |5
+         * | |
+         * | |
+         * Tacoma Redmond
+         * | |
+         * 20| |15
+         * | |
+         * | |
+         * ------ Everett
+         */
 
-        DijkstraAssignment map =
-                new DijkstraAssignment();
+        DijkstraAssignment map = new DijkstraAssignment();
 
         // ADD CITIES
         map.addCity("Seattle");
@@ -85,14 +95,14 @@ public class DijkstraAssignment {
         // RUN DIJKSTRA
         map.dijkstra("Seattle");
 
-        //Expected Output
+        // Expected Output
         /*
-        Shortest distances from Seattle:
-            Tacoma = 35
-            Seattle = 0
-            Redmond = 15
-            Everett = 30
-            Bellevue = 10
-        */
+         * Shortest distances from Seattle:
+         * Tacoma = 35
+         * Seattle = 0
+         * Redmond = 15
+         * Everett = 30
+         * Bellevue = 10
+         */
     }
 }
